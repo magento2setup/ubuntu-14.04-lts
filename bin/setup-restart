@@ -4,14 +4,10 @@
 #
 
 
-    # | restart
+    # restart - apache2
+    [ -e '/usr/sbin/apache2' ] && service apache2 restart
 
-        # apache2
-        service apache2 restart
-
-        # mysql
-        service mysql restart
-
-    # restart |
+    # restart - mysql
+    [ -e '/usr/bin/mysql' ] &&  service mysql restart
 
 
