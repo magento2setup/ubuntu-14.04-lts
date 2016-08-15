@@ -1,5 +1,5 @@
 #magento2setup
-#Ubuntu 14.04 LTS
+## Ubuntu 14.04 LTS
 
 ##install
 - `bash <( curl -s s3.magento2setup.com/ubuntu-14.04-lts/bin/getup )`
