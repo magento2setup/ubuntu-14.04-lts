@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+#   script - setup - restart
+#
+
+
+    # | restart
+
+        # apache2
+        service apache2 restart
+
+        # mysql
+        service mysql restart
+
+    # restart |
+
+
