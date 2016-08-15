@@ -14,15 +14,6 @@
             git clone 'https://github.com/magento/magento2.git' '/var/www/magento2'
         fi
 
-        # cd - magento2
-        cd '/var/www/magento2'
-
-        # composer - install
-        composer install
-
-        # composer - update
-        composer update
-
     fi
     # magento |
 

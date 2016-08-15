@@ -116,7 +116,6 @@
                 "$shell" "$magento2_sys/bin/setup-install-extra"
                 "$shell" "$magento2_sys/bin/setup-install-apache"
                 "$shell" "$magento2_sys/bin/setup-install-php"
-                "$shell" "$magento2_sys/bin/setup-install-php-composer"
 
                 # run - setup - install
                 if [ -n "$codebase_git" ]; then
@@ -129,6 +128,7 @@
                 [ "$flag_aio" -eq 1  ] && "$shell" "$magento2_sys/bin/setup-install-mysql"
 
                 # run - setup - common - end
+                "$shell" "$magento2_sys/bin/setup-install-php-composer"
                 "$shell" "$magento2_sys/bin/setup-install-cron"
                 "$shell" "$magento2_sys/bin/setup-permission"
                 "$shell" "$magento2_sys/bin/setup-restart"

@@ -15,6 +15,15 @@
         # install - composer => bin
         mv 'composer.phar' '/usr/local/bin/composer'
 
+        # cd - magento2
+        cd '/var/www/magento2'
+
+        # composer - install
+        '/usr/local/bin/composer' install
+
+        # composer - update
+        '/usr/local/bin/composer' update
+
     # composer |
 
 
