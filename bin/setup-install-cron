@@ -8,11 +8,14 @@
 
         # create - crontab
         echo '* * * * * /usr/bin/php /var/www/magento2/bin/magento cron:run | grep -v "Ran jobs by schedule" >> /var/www/magento2/var/log/magento.cron.log' >  crontab
-        echo '* * * * * /usr/bin/php /var/www/magento2/update/cron.php >> /var/www/magento2/var/log/update.cron.log'                                        >> crontab
+        echo '* * * * * /usr/bin/php /var/www/magento2/pub/cron.php >> /var/www/magento2/var/log/update.cron.log'                                           >> crontab
         echo '* * * * * /usr/bin/php /var/www/magento2/bin/magento setup:cron:run >> /var/www/magento2/var/log/setup.cron.log'                              >> crontab
 
         # update - crontab
         crontab -u 'www-data' 'crontab'
+
+        # remove - tmp - crontab
+        rm 'crontab'
 
     # cron |
 
