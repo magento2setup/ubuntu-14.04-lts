@@ -4,15 +4,18 @@
     # | magento
     if [ -d '/var/www/magento2' ]; then
 
-        # cd
+        # permission(s) - document - root
+        chown 775 '/var/www/magento2'
+
+        # cd - document - root
         cd '/var/www/magento2'
 
-        # permissin(s)
+        # permissin(s) - var/vendor/pub/app/...
         find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {}  \;
         find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
                                                                    chmod u+x bin/magento
-        # ownership
-        chown -R :www-data .
+        # ownership - file(s)
+        chown -R root:www-data .
 
     fi
     # magento |
