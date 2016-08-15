@@ -6,6 +6,9 @@
 
     # | apt
 
+        # export - locale
+        export LANG=en_US.UTF-8
+
         # install - pre-requisites
         apt-get install -q -y  software-properties-common
 
