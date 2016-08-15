@@ -132,7 +132,7 @@
                 "$shell" "$magento2_sys/bin/setup-install-cron"
                 "$shell" "$magento2_sys/bin/setup-permission"
                 "$shell" "$magento2_sys/bin/setup-restart"
-
+                "$shell" "$magento2_sys/bin/setup-ascii"
 
             fi
             # setup |

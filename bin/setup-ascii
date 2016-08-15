@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#   script - setup - ascii
+#
+
+
+    # | ascii
+
+        echo '                     ';
+        echo '     ▄▄▄▄███▄▄▄▄     ';
+        echo '   ▄██▀▀▀███▀▀▀██▄   ';
+        echo '   ███   ███   ███   ';
+        echo '   ███   ███   ███   ';
+        echo '   ███   ███   ███   ';
+        echo '   ███   ███   ███   ';
+        echo '   ███   ███   ███   ';
+        echo '    ▀█   ███   █▀    ';
+        echo '                     ';
+
+    # ascii |
+
+
