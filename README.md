@@ -1,13 +1,10 @@
-#magento2 - ubuntu 14.04 lts
-Magento 2.1.x running on Ubuntu 14.04 LTS
+#magento2setup
+#Ubuntu 14.04 LTS
 
-##installation
-- '/bin/bash bin/install'
+##install
+- `bash <( curl -s s3.magento2setup.com/ubuntu-14.04-lts/bin/getup )`
 
-##note(s)
-Uses `ppa:ondrej/php` as Magento 2.1.x requires PHP5.6+
-
-##aws
+##install - aws
 - Create bucket.
 - Launch EC2 Instance
   - Step 1: Choose AMI
@@ -27,11 +24,14 @@ Uses `ppa:ondrej/php` as Magento 2.1.x requires PHP5.6+
   - Step 7: Review
   - Step 8: Patience...
 
-
-##vagrant
+##install - vagrant
 - `cd vagrant && vagrant up`
 
+##note(s)
+Uses `ppa:ondrej/php` as Magento 2.1.x requires PHP5.6+
+
 ##version(s)
-- PHP `v5.6`
-- Magento `v2.1.0`
-- MySQL `v14.14 Distrib 5.5.50`
+- `Apache v2.4,2`
+- `Magento v2`
+- `MySQL v14.14 Distrib 5.5.50`
+- `PHP v5.6`
