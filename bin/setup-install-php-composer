@@ -6,6 +6,9 @@
 
     # | composer
 
+        # export - home
+        [ -z "$HOME" ] && export HOME='/root'
+
         # download - composer
         curl -sS https://getcomposer.org/installer | php
 
