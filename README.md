@@ -5,7 +5,6 @@
 - `source <( curl -s s3.magento2setup.com/ubuntu-14.04-lts/bin/getup )`
 
 ##install - aws
-- Create bucket.
 - Launch EC2 Instance
   - Step 1: Choose AMI
     - `Ubuntu Server 14.04 LTS (HVM), SSD Volume Type - ami-ba3e14d9`
