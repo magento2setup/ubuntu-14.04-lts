@@ -18,8 +18,8 @@
         a2enmod rewrite
 
         # update - apache2 - sites-enabled - default
-        [ -e '/opt/magento2setup/ubuntu-14.04-lts/etc/apache2/sites-enabled/000-default.conf' ] && \
-          cp '/opt/magento2setup/ubuntu-14.04-lts/etc/apache2/sites-enabled/000-default.conf' '/etc/apache2/sites-enabled/000-default.conf'
+        [ -e '/opt/magento2setup/etc/apache2/sites-enabled/000-default.conf' ] && \
+          cp '/opt/magento2setup/etc/apache2/sites-enabled/000-default.conf' '/etc/apache2/sites-enabled/000-default.conf'
 
     # apache |
 
