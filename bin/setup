@@ -21,7 +21,7 @@
     codebase_git=""
 
     # magento2
-    magento2_git="https://_tim_tim@bitbucket.org/_tim_tim/vendor-magento2.git"
+    magento2_git="https://github.com/magento2setup/ubuntu-14.04-lts"
     magento2_sys="/opt/magento2setup"
 
     # shell
@@ -108,29 +108,29 @@
 
 
             # | setup
-            if [ -d "$magento2_sys/ubuntu-14.04-lts/bin" ]; then
+            if [ -d "$magento2_sys/bin" ]; then
 
                 # run - setup - common - start
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-update"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-upgrade"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-extra"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-apache"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-php"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-php-composer"
+                "$shell" "$magento2_sys/bin/setup-update"
+                "$shell" "$magento2_sys/bin/setup-upgrade"
+                "$shell" "$magento2_sys/bin/setup-install-extra"
+                "$shell" "$magento2_sys/bin/setup-install-apache"
+                "$shell" "$magento2_sys/bin/setup-install-php"
+                "$shell" "$magento2_sys/bin/setup-install-php-composer"
 
                 # run - setup - install
                 if [ -n "$codebase_git" ]; then
-                    "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-magento" --codebase-git "$codebase_git"
+                    "$shell" "$magento2_sys/bin/setup-install-magento" --codebase-git "$codebase_git"
                 else 
-                    "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-magento"
+                    "$shell" "$magento2_sys/bin/setup-install-magento"
                 fi
 
                 # run - setup - aio - install mysql
-                [ "$flag_aio" -eq 1  ] && "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-mysql"
+                [ "$flag_aio" -eq 1  ] && "$shell" "$magento2_sys/bin/setup-install-mysql"
 
                 # run - setup - common - end
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-cron"
-                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-permission"
+                "$shell" "$magento2_sys/bin/setup-install-cron"
+                "$shell" "$magento2_sys/bin/setup-permission"
 
             fi
             # setup |
