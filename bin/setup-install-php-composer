@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+#   script - install - php - composer
+#
+
+
+    # | composer
+
+        # download - composer
+        curl -sS https://getcomposer.org/installer | php
+
+        # install - composer => bin
+        mv 'composer.phar' '/usr/local/bin/composer'
+
+    # composer |
+
+

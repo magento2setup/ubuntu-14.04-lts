@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#   script - install - magento2
+#
+
+
+    # | magento
+    if [ ! -d '/var/www/magento2' ]; then
+
+        # git - clone - magento2
+        if [[ "$1" == '--codebase-git' ]]; then
+            git clone "$codebase_git" '/var/www/magento2'
+        else
+            git clone 'https://github.com/magento/magento2.git' '/var/www/magento2'
+        fi
+
+        # cd - magento2
+        cd '/var/www/magento2'
+
+        # composer - install
+        composer install
+
+        # composer - update
+        composer update
+
+    fi
+    # magento |
+
+

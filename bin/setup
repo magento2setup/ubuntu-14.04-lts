@@ -1,0 +1,145 @@
+#!/bin/bash
+#
+#                            setup -=
+#                            setup -=
+#   aws -> aws-bucket -> aws-setup -=
+#                            setup -=
+#                            setup -=
+#       "Magento AWS"
+#
+#
+
+
+
+
+    # flag(s)
+    flag_aio=1
+    flag_app=1
+    flag_set_codebase_git=1
+
+    # codebase
+    codebase_git=""
+
+    # magento2
+    magento2_git="https://_tim_tim@bitbucket.org/_tim_tim/vendor-magento2.git"
+    magento2_sys="/opt/magento2setup"
+
+    # shell
+    shell='/bin/bash'
+
+    # script
+    script=$( echo $0 )
+    script_path=$( dirname $0 )
+
+
+
+
+    # | function(s)
+
+        function install_aws {
+            notice "+ installing python2.7, unzip..."
+            apt-get install -q -y python2.7 unzip
+            motice "+ installing aws-cli..."
+            curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+            unzip awscli-bundle.zip
+            ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+        }
+
+        function install_git {
+            notice "+ installing git..."
+            apt-get install -q -y git
+        }
+
+        function notice {
+            logger -s -p user.notice -t "$script" "$@"
+        }
+
+        function error {
+            logger -s -p user.error -t "$script" "$@"
+        }
+
+        function usage {
+            echo "$script usage: $script  [ --git-codebase git:~/codebase.git ] [ --aio ] [ --app ]"
+        }
+
+    # function(s) |
+
+
+
+
+    # | main
+
+
+        # ? - args - check
+        [ "$#" -eq 0 ] && usage && exit 2
+
+        # | arg(s)
+        for arg in "$@"; do
+
+            # set - arg(s) - option(s)
+            [ "$flag_set_codebase_git" -eq 0 ] && codebase_git="$arg" && flag_set_codebase_git=1
+
+            # set - arg(s)
+            [[ "$arg" == "--codebase-git" ]] && flag_set_codebase_git=0
+            [[ "$arg" == "--aio"          ]] && flag_aio=0
+            [[ "$arg" == "--app"          ]] && flag_app=0
+
+        done
+        # arg(s) |
+
+
+        # | run
+
+            # | git - clone
+            if [ -n "$magento2_git"  ]; then
+
+                # ? - git
+                [ ! -e '/usr/bin/git' ] && install_git
+                [ ! -e '/usr/bin/git' ] && error "git not found" && exit 2
+
+                # git - sync - git => system - magento2
+                [ ! -d "$magento2_sys" ] && git clone "$magento2_git" "$magento2_sys"
+
+                # ? - system - magento2
+                [ ! -d "$magento2_sys" ] && error "git sync failed" && exit 2
+
+            fi
+            #  git - clone |
+
+
+            # | setup
+            if [ -d "$magento2_sys/ubuntu-14.04-lts/bin" ]; then
+
+                # run - setup - common - start
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-update"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-upgrade"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-extra"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-apache"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-php"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-php-composer"
+
+                # run - setup - install
+                if [ -n "$codebase_git" ]; then
+                    "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-magento" --codebase-git "$codebase_git"
+                else 
+                    "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-magento"
+                fi
+
+                # run - setup - aio - install mysql
+                [ "$flag_aio" -eq 1  ] && "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-mysql"
+
+                # run - setup - common - end
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-install-cron"
+                "$shell" "$magento2_sys/ubuntu-14.04-lts/bin/setup-permission"
+
+            fi
+            # setup |
+
+        # run |
+
+
+    # main |
+
+
+
+

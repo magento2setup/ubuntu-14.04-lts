@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#   script - update - system
+#
+
+
+    # | apt
+
+        # update
+        apt-get upgrade -q -y
+
+    # apt |
+
+

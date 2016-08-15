@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#   script - install - apache - 2.
+#
+
+
+    # | apt
+
+        # install - apache2
+        apt-get -q -y install apache2
+
+    # apt |
+
+
+    # | apache
+
+        # enable - mod - rewrite
+        a2enmod rewrite
+
+        # update - apache2 - sites-enabled - default
+        [ -e '/opt/magento2setup/ubuntu-14.04-lts/etc/apache2/sites-enabled/000-default.conf' ] && \
+          cp '/opt/magento2setup/ubuntu-14.04-lts/etc/apache2/sites-enabled/000-default.conf' '/etc/apache2/sites-enabled/000-default.conf'
+
+    # apache |
+
+

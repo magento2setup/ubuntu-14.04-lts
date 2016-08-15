@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#   script - install - extra
+#
+
+
+    # | apt
+
+        # install - extra
+        apt-get install -q -y fail2ban git tree vim unzip
+
+    # apt |
+
+

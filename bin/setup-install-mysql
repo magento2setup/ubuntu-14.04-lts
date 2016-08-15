@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+#   script - install - mysql - 5.6 - maganto
+#
+
+
+    # | mysql
+
+        # install - mysql
+        apt-get -q -y install mysql-server-5.6 mysql-client-5.6
+
+        # create - database - magento
+        mysql -u root -Bse "CREATE DATABASE magento"
+
+    # mysql |
+
+

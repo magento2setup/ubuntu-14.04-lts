@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+    # | magento
+    if [ -d '/var/www/magento2' ]; then
+
+        # cd
+        cd '/var/www/magento2'
+
+        # permissin(s)
+        find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {}  \;
+        find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+                                                                   chmod u+x bin/magento
+        # ownership
+        chown -R :www-data .
+
+    fi
+    # magento |
+
+
