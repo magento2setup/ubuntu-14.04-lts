@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#   script - install - magento2.1
+#
+
+
+    # | magento - 2.1
+    if [ ! -d '/var/www/magento2' ]; then
+
+        # git - clone - magento
+        if [[ "$1" == '--codebase-git' ]]; then
+            git clone "$codebase_git" '/var/www/magento2'
+        else
+            git clone 'https://github.com/magento/magento2.git' '/var/www/magento2'
+                                                             cd '/var/www/magento2'
+            git checkout tags/2.1.0-rc3 -b 2.1.0-rc3
+        fi
+
+    fi
+    # magento - 2.1 |
+
+
