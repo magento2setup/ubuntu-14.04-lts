@@ -2,7 +2,7 @@
 ## Ubuntu 14.04 LTS
 
 ##install
-- `source <( curl -s s3.magento2setup.com/ubuntu-14.04-lts/bin/getup )`
+- `source <( curl -s s3.magento2setup.com/ubuntu-14.04-lts-git/bin/getup )`
 
 ##install - aws
 - Launch EC2 Instance
@@ -14,7 +14,7 @@
     - Advanced Details
       - User data
         - `#!/bin/bash`
-        - `source <( curl -s s3.magento2setup.com/ubuntu-14.04-lts/bin/getup )`
+        - `source <( curl -s s3.magento2setup.com/ubuntu-14.04-lts-git/bin/getup )`
   - Step 4: Add Storage
   - Step 5: Tagg Instance
   - Steo 6: Configure Security Group
